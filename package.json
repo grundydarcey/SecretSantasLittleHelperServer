@@ -1,12 +1,12 @@
 {
-  "name": "expressboilerplate",
+  "name": "capstoneserverdb",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require test/setup.js",
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
+    "dev": "nodemon src/app.js",
+    
     "predeploy": "npm audit",
     "deploy": "git push heroku main"
   },

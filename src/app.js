@@ -5,6 +5,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
+const { PORT } = require('./config');
+const GroupData = require('../GroupData');
 
 const app = express();
 
@@ -20,6 +22,12 @@ app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
 
+app.get('/group', (req, res) => {
+  let response = GroupData;
+  res.status(200);
+  res.json(response);
+});
+
 app.use(function errorHandler(error, req, res, next) {
   let response;
   if (NODE_ENV === 'production') {
@@ -29,6 +37,10 @@ app.use(function errorHandler(error, req, res, next) {
     response = { message: error.message, error };
   }
   res.status(500).json(response);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening at http://localhost:${PORT}`);
 });
 
 module.exports = app;
