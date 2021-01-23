@@ -1,6 +1,6 @@
 const MembersService = {
-  getAllMembers() {
-    return 'all people';
+  getAllMembers(knex) {
+    return knex.select('*').from('groupmembers');
   }
 };
 
