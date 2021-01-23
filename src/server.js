@@ -6,10 +6,7 @@ const knexInstance = knex({
   connection: process.env.DB_URL,
 });
 
-knexInstance
-  .select('member_name')
-  .from('groupmembers')
-  .where({ dollars: '100' })
+knexInstance('groupmembers').select('*')
   .then(result => {
     console.log(result);
   });
