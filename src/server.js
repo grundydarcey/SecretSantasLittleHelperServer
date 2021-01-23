@@ -6,4 +6,10 @@ const knexInstance = knex({
   connection: process.env.DB_URL,
 });
 
-console.log('knex and driver installed');
+knexInstance
+  .select('member_name')
+  .from('groupmembers')
+  .where({ dollars: '100' })
+  .then(result => {
+    console.log(result);
+  });
