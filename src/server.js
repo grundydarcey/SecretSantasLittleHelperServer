@@ -1,9 +1,10 @@
 require('dotenv').config();
 const knex = require('knex');
 const MembersService = require('./members-service');
+
 const knexInstance = knex({
   client: 'pg',
-  connection: process.env.DB_URL,
+  connection: process.env.DATABASE_URL,
 });
 
 //knexInstance('groupmembers').select('*')
