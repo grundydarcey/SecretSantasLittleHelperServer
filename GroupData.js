@@ -24,4 +24,4 @@ module.exports = [
     'name': 'Spot',
     'dollars': 50
   }
-]
+];
