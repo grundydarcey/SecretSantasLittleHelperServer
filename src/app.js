@@ -6,7 +6,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 const { PORT } = require('./config');
-const GroupData = require('../GroupData');
+const MembersService = require('./members-service');
 
 const app = express();
 
@@ -18,14 +18,19 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
+///END POINT SECRETSANTASLITTLEHELPER/GET RECEIVES 'HELLO WORLD'
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
 
-app.get('/group', (req, res) => {
-  let response = GroupData;
-  res.status(200);
-  res.json(response);
+//END POINT SECRETSANTASLITTLEHELPER.COM/MEMBERS RECEIVES THE WHOLE FAM
+app.get('/members', (req, res, next) => {
+  const knexInstance = req.app.get('db');
+  MembersService.getAllMembers(knexInstance)
+    .then(members => {
+      res.json(members);
+    })
+    .catch(next);
 });
 
 app.use(function errorHandler(error, req, res, next) {
@@ -39,8 +44,8 @@ app.use(function errorHandler(error, req, res, next) {
   res.status(500).json(response);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening at http://localhost:${PORT}`);
-});
+//app.listen(PORT, () => {
+//  console.log(`Server listening at http://localhost:${PORT}`);
+//});
 
 module.exports = app;
