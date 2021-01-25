@@ -18,7 +18,7 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
-///END POINT SECRETSANTASLITTLEHELPER/GET RECEIVES 'HELLO WORLD'
+///END POINT SECRETSANTASLITTLEHELPER/ GET RECEIVES 'HELLO WORLD'
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 });

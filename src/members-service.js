@@ -1,8 +1,6 @@
 const MembersService = {
   getAllMembers(knex) {
-    return knex
-      .select('*')
-      .from('groupmembers');
+    return knex.select('*').from('groupmembers');
   },
   insertMember(knex, newMember) {
     return knex

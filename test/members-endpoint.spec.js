@@ -2,15 +2,15 @@ const { expect } = require('chai');
 const knex = require('knex');
 const app = require('../src/app');
 
-describe('Members Endpoints', function() {
+describe.only('Members Endpoints', function() {
   let db;
   before('make knex instance', () => {
     db = knex({
       client: 'pg',
       connection: process.env.TEST_DATABASE_URL,
     });
+    app.set('db', db);
   });
-  app.set('db', db);
   after('disconnect from db', () => db.destroy());
   before('clean the table', () => db('groupmembers').truncate());
   afterEach('cleanup', () => db('groupmembers').truncate());
