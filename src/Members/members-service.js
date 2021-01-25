@@ -6,10 +6,10 @@ const MembersService = {
     return knex
       .insert(newMember)
       .into('groupmembers')
-      .returning('*');
-    //.then(rows => {
-    //  return rows[0];
-    //});
+      .returning('*')
+      .then(rows => {
+        return rows[0];
+      });
   },
   getById(knex, id) {
     return knex
