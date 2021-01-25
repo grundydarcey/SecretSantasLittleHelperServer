@@ -2,7 +2,7 @@
 //require('dotenv').config();
 const knex = require('knex');
 //const MembersService = require('./members-service');
-const { PORT, DATABASE_URL } = require('./config');
+const { PORT, DATABASE_URL, TEST_DATABASE_URL } = require('./config');
 const app = require('./app');
 
 const db = knex({
@@ -12,7 +12,7 @@ const db = knex({
 
 //const knexInstance = knex({
 //  client: 'pg',
-//  connection: DATABASE_URL,
+//  connection: TEST_DATABASE_URL,
 //});
 
 app.set('db', db);

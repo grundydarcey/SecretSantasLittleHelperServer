@@ -10,9 +10,10 @@ describe('Members Endpoints', function() {
       connection: process.env.TEST_DATABASE_URL,
     });
   });
-
+  app.set('db', db);
   after('disconnect from db', () => db.destroy());
   before('clean the table', () => db('groupmembers').truncate());
+  afterEach('cleanup', () => db('groupmembers').truncate());
   context('Given there are members in the database', () => {
     const testMembers = [
       {
@@ -41,6 +42,12 @@ describe('Members Endpoints', function() {
       return db
         .into('groupmembers')
         .insert(testMembers);
+    });
+
+    it('GET /members responds with 200 and all of the members', () => {
+      return supertest(app)
+        .get('/members')
+        .expect(200, testMembers);
     });
   });
 });

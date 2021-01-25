@@ -1,4 +1,4 @@
-BEGIN;
+
 
 INSERT INTO groupmembers
     (member_name, dollars)
@@ -9,4 +9,3 @@ VALUES
     ('Dad', 100),
     ('Mom', 100);
 
-COMMIT;
