@@ -23,4 +23,21 @@ function makeMembersArray() {
   ];
 }
 
-module.exports = {makeMembersArray};
+function makeMaliciousMember() {
+  const maliciousMember = {
+    id: 911,
+    member_name: `Bad image <img src="https://url.to.file.which/does-not.exist"> onerror="alert(document.cookie);"&gt;. But not <strong>all</strong> bad.`,
+    dollars: 0
+  }
+  const expectedMember = {
+    ...maliciousMember,
+    member_name: `Bad image <img src="https://url.to.file.which/does-not.exist"> onerror="alert(document.cookie);"&gt;. But not <strong>all</strong> bad.`,
+    dollars: 0
+  }
+  return {
+    maliciousMember,
+    expectedMember
+  }
+}
+
+module.exports = { makeMaliciousMember, makeMembersArray};

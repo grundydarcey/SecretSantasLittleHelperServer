@@ -5,8 +5,6 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
-//const { PORT } = require('./config');
-//const MembersService = require('./members-service');
 const MembersRouter = require('./Members/members-router');
 
 const app = express();
@@ -19,7 +17,7 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
-app.use('/members', MembersRouter);
+app.use('/api/members', MembersRouter);
 
 ///END POINT SECRETSANTASLITTLEHELPER/ GET RECEIVES 'HELLO WORLD'
 app.get('/', (req, res) => {
