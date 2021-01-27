@@ -24,10 +24,11 @@ membersRouter
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
+    //const knexInstance = req.app.get('db');
     const { member_name, dollars } = req.body;
     const newMember = { member_name, dollars };
     for (const [key, value] of Object.entries(newMember)) 
-      // eslint-disable-next-line eqeqeq
+    // eslint-disable-next-line eqeqeq
       if (value == null) 
         return res.status(400).json({
           error: { message: `There is a Missing '${key}' in request body` }
@@ -77,6 +78,7 @@ membersRouter
       })
       .catch(next);
   })
+
   .patch(jsonParser, (req, res, next) => {
     const { member_name, dollars } = req.body;
     const memberToUpdate = { member_name, dollars };

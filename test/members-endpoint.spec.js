@@ -112,7 +112,7 @@ describe('Members Endpoints', function() {
   })
 
   describe(`POST /api/members`, () => {
-    it(`creates a member, responding with 201 and the new member`, function() {
+    it(`creates a member, responding with 201 and the new member`, () => {
       const newMember = {
         member_name: 'Test new member',
         dollars: 1234
@@ -137,8 +137,8 @@ describe('Members Endpoints', function() {
     const requiredFields = ['member_name', 'dollars'];
     requiredFields.forEach(field => {
       const newMember = {
-        member_name: 'newbie',
-        dollars: 14,
+        member_name: 'Test new member',
+        dollars: 1234,
       };
 
       it(`responds with 400 and an errror message when the '${field}' is missing`, () => {
