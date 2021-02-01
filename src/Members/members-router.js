@@ -3,7 +3,6 @@ const express = require('express');
 const xss = require('xss');
 const path = require('path');
 const MembersService = require('./members-service');
-
 const membersRouter = express.Router();
 const jsonParser = express.json();
 
@@ -48,11 +47,11 @@ membersRouter
   });
 
 membersRouter
-  .route('/:member_id')
+  .route('/:memberId')
   .all((req, res, next) => {
     MembersService.getById(
       req.app.get('db'),
-      req.params.member_id
+      req.params.memberId
     )
       .then(member => {
         if (!member) {
@@ -71,7 +70,7 @@ membersRouter
   .delete((req, res, next) => {
     MembersService.deleteMember(
       req.app.get('db'),
-      req.params.member_id
+      req.params.memberId
     )
       .then(numRowsAffected => {
         res.status(204).end();
@@ -92,7 +91,7 @@ membersRouter
 
     MembersService.updateMember(
       req.app.get('db'),
-      req.params.member_id,
+      req.params.memberId,
       memberToUpdate
     )
       .then(numRowsAffected => {

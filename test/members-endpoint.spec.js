@@ -64,7 +64,7 @@ describe('Members Endpoints', function() {
   })
 
    
-  describe(`GET /api/members/:member_id`, () => {
+  describe(`GET /api/members/:memberId`, () => {
     context(`Given no members`, () => {
       it(`responds with 404`, () => {
         const memberId = 123456;
@@ -166,7 +166,7 @@ describe('Members Endpoints', function() {
   });
 
   
-  describe(`DELETE /api/members/:member_id`, () => {
+  describe(`DELETE /api/members/:memberId`, () => {
     context(`Given no members`, () => {
       it(`responds with 404`, () => {
         const memberId = 123456;
@@ -199,7 +199,7 @@ describe('Members Endpoints', function() {
     });
   });
 
-  describe(`PATCH /api/members/:member_id`, () => {
+  describe(`PATCH /api/members/:memberId`, () => {
     context(`Given no members`, () => {
       it(`responds with 404`, () => {
         const memberId = 123456;
