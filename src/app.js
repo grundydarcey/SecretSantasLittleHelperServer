@@ -10,6 +10,8 @@ const bodyParser = require('body-parser');
 const errorHandler = require('./error-handler');
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
@@ -22,8 +24,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(errorHandler);
 
 app.use('/api/members', MembersRouter);
