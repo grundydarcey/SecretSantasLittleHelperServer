@@ -46,30 +46,6 @@ membersRouter
       .catch(next);
   });
 
-/*membersRouter
-  .route('/newmmeber/')
-  .post(jsonParser, (req, res, next) => {
-    const { member_name, dollars } = req.body;
-    const newMember = { member_name, dollars };
-    for (const [key, value] of Object.entries(newMember))
-      if (value == null)
-        return res.status(400).json({
-          error: { message: `There is a Missing '${key}' in request body` }
-        });
-    MembersService.insertMember(
-      req.app.get('db'),
-      newMember
-    )
-      .then(member => {
-        res
-          .status(201)
-          .location(path.posix.join(req.originalUrl, '/newmember'))
-          .json(serializeMember(member));
-      })
-      .catch(next);
-  });*/
-
-
 membersRouter
   .route('/:memberId')
   .all((req, res, next) => {
