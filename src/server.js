@@ -1,7 +1,11 @@
+/* eslint-disable quotes */
 /* eslint-disable no-console */
 const knex = require('knex');
-const { PORT, DATABASE_URL, TEST_DATABASE_URL } = require('./config');
+const { PORT, DATABASE_URL } = require('./config');
 const app = require('./app');
+
+const pg = require('pg');
+pg.defaults.ssl = process.env.NODE_ENV === "production";
 
 const db = knex({
   client: 'pg',
