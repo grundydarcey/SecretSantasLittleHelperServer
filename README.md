@@ -1,5 +1,5 @@
 Secret Santa's Little Helper
-Live Client Link: https://santaserver.grundydarcey.vercel.app/drawscreen
+Live Client Link: https://santaserver-8khqgpbvp.vercel.app/
 
 I have created an API and a database to work with this app as well. This is a basic API that allows for information to manipulated by all four CRUD functionalities by the user. My database is a simple one with one table with three attributes: a unique number id, a member name of text, and a number to indicate dollar amount to spend on your Secret Santa drawing. My API allows to call for information on the Heroku link from the /api endpoint. From there, information can be drawn from /members and /members/:memberid. 
 Link API/Server Link: https://dry-brook-26909.heroku.com
